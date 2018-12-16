@@ -1,0 +1,12 @@
+Visibilidade:
+ public
+ private
+ potected
+
+Métodos assessores
+
+
+
+Isto serve para areibutos, mas tambem para metodos
+
+Interface?
