@@ -7,6 +7,17 @@ Métodos assessores
 
 
 
-Isto serve para areibutos, mas tambem para metodos
+Isto serve para atributos, mas tambem para metodos
 
 Interface?
+
+
+Class 3 - Configuring Attribute and Method Visibility
++modelo
++cor
+-ponta
+#carga
+
++public
+-private
+#protected 
