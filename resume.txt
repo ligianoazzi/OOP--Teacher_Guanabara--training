@@ -21,3 +21,13 @@ Class 3 - Configuring Attribute and Method Visibility
 +public
 -private
 #protected 
+
+Class 4 - Methods Getter, Setter and Constructor
+CANETA
++modelo
+-ponta
+--
++getModelo()
++setModelo()
++getPonta()
++setPonta()
