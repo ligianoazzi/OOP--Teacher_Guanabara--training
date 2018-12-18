@@ -38,7 +38,11 @@ class ContaBanco{
 	}	
 
 
-	public function __construct($tipo){
+
+
+	public function abrirConta($dono, $tipo){
+
+		$this->setStatus(true);
 
 		if ( $tipo == 'CC' ){
 
@@ -52,28 +56,38 @@ class ContaBanco{
 
 		}
 
-	}
-
-
-	public function abrirConta($dono){
-		$this->setStatus(true);
 		$this->setDono($dono);
 		echo "A conta foi aberta!";
 		$this->exibeSaldo();
 	} 
 
 	public function fecharConta(){
-		$saldo = $this->getSaldo();
-		if ( $saldo == 0 ) {
-			
-			$this->setStatus(false);
-				echo "A conta foi fechada";
+		if ($this->getStatus() == false){
+			echo "<br> esta conta ja esta fechada";
+			return false;
+		}
 
+		if ( $this->getSaldo() > 0 ) {
+			
+			echo "<br> A conta possui saldo, impossivel fechar";
+
+		}elseif( $this->getSaldo() < 0 ){
+
+			echo "<br> A conta esta negativa, impossivel fechar.";
+
+		}else{
+
+			$this->setStatus(false);
+			echo "<br> A conta foi fechada";
+			
 		}
 	}
 
 	public function depositar($valorDeposito){
-
+		if ($this->getStatus() == false){
+			echo "<br> esta conta esta fechada";
+			return false;
+		}
 		$saldo = $this->getSaldo();
 		$saldo = $saldo + $valorDeposito;
 		$this->setSaldo($saldo);
@@ -83,7 +97,10 @@ class ContaBanco{
 	}
 
 	public function sacar($valorSacar){
-		
+		if ($this->getStatus() == false){
+			echo "<br> esta conta esta fechada";
+			return false;
+		}
 		$verifica = $this->verificaSePodeSacar($valorSacar);
 		
 		if($verifica == true){
@@ -97,7 +114,10 @@ class ContaBanco{
 	}
 
 	private function verificaSePodeSacar($valorSacar){
-		
+		if ($this->getStatus() == false){
+			echo "<br> esta conta esta fechada";
+			return false;
+		}		
 		$saldoVerifica = $this->saldo;
 
 		$saldoVerifica = $saldoVerifica - $valorSacar;
@@ -132,5 +152,13 @@ class ContaBanco{
 			echo "<br> Mensalidade paga - Saldo Atual ".$this->saldo;			
 		}
 	}
+
+	public function __construct(){
+
+		$this->setSaldo(0);
+		$this->setStatus(false);	
+
+	}
+
 
 }
