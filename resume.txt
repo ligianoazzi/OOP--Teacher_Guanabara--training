@@ -31,3 +31,30 @@ CANETA
 +setModelo()
 +getPonta()
 +setPonta()
+
+Class 6 - implements (encapsulamento)
+The class that will be implemented, is just a models, no have logical,
+The class that will call a model class, must rewrite all class
+Need to have becarefull about the visibility os the classes, when is necessary, use private
+
+Class 7 - Objetos Compostos em PHP (relacionamento entre classes)
+LUTADOR
+ - nome
+ - nacionalidade
+ - idade
+ - altura
+ - peso
+ - categoria
+ - vitorias
+ - derrotas
+ - empates
+ + apresentar()
+ + status()
+ + ganharLuta()
+ + perderLuta()
+ + empatarLuta()
+
+
+
+
+
